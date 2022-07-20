@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Home } from './pages/Home'
-import { Store } from './pages/Store'
-import { About } from './pages/About'
-import { Navbar } from './components/Navbar'
+import { Home } from './Home'
+import { Store } from './Store'
+import { About } from './About'
+import { Navbar } from './Navbar'
 
 
 function App() {
