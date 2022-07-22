@@ -3,7 +3,7 @@ import { Store } from './pages/Store'
 import { About } from './pages/About'
 import App from './App'
 
-export function Rout (){
+export function Rout() {
     return (
     <>
     <Routes>
