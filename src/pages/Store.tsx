@@ -1,3 +1,10 @@
 export function Store() {
-    return <h1>Store</h1>
+    return(
+    <div className="">    
+    <h1>Store</h1>
+    <div className="">
+        
+    </div>
+    </div>
+    )
 }
