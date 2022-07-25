@@ -1,8 +1,7 @@
 export function About() {
     return ( 
     <div className="">
-        <h1 className="">About
-    </h1>
+    <h1 className="">About</h1>
     <div className="">
         
     </div>
