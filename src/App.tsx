@@ -8,14 +8,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} >
         <Route path="/" element={<h1>Home</h1>} />
-      <Route path="about" element={<About />} />
-      <Route path="/cart" element={<Cart />} />
-      
       </Route>
+      <Route path="/about" element={<About />} />
+      <Route path="/cart" element={<Cart />} />
       </Routes>
       );
     }
-
-      
 
 export default App
