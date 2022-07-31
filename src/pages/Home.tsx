@@ -3,7 +3,7 @@ import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-import { pathAdd } from '../hooks/pathAdd'
+import { pathAdd } from './pathAdd'
 
 export function Home() {
   return (

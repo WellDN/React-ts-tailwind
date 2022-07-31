@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { pathAdd } from '../hooks/pathAdd'
+import { pathAdd } from './pathAdd'
 
 export function Cart() {
     return(
