@@ -4,10 +4,17 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const client = new QueryClient(); //gucci thamagucci
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+  <QueryClientProvider client={client}>
     <App />
-    </BrowserRouter>
+  </QueryClientProvider>
+  </BrowserRouter>
   </React.StrictMode>
-)
+    
+);

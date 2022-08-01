@@ -3,14 +3,15 @@ import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-import { pathAdd } from './pathAdd'
 
 export function Home() {
+  
   return (
     <body className="grid gap-5 min-w-min bg-gray-200">
      <nav className="flex justify-center pt-2 bg-gray-300 h-12 w-full sm:">
      <div className="text-lg items-center text-gray-500">
-    <Link to="/" className="mr-20 hover:text-gray-900">
+    <Link
+     to="/" className="mr-20 hover:text-gray-900">
       Home
     </Link>
     <Link to="/cart" className="mr-20 hover:text-gray-900">
@@ -30,9 +31,9 @@ export function Home() {
   <div className="w-full">
       <img src={landscape} alt="idk" className="h-96 w-full"/>
       <div className="flex h-50 w-full justify-center">
-        <div className="pt-16">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
-      </div>
+        
+
+
       </div>
   </div>
   <div className="w-full h-44">
