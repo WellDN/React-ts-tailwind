@@ -1,49 +1,106 @@
 import { useContext, createContext, ReactNode, useState } from "react";
-import { Cart } from "../pages/Cart";
+import { useLocalStorage } from '../useLocalStorage'
 
 
-
-
-type CartContextProps = { //to children works you have to import manually the children from ReactNode otherwise the children will not be availible
+type ShoppingCartProviderProps = { //to children works you have to import manually the children from ReactNode otherwise the children will not be availible
     children: ReactNode;
 }
 
-type FakeProps = {
+type CartItem = {
   id: number
+  quantity: number
 }
+
+type ShoppingCartContext = {
+  openCart: () => void
+  closeCart: () => void
+  getItemQuantity: (id: number) => number
+  increaseCartQuantity: (id: number) => void
+  decreaseCartQuantity: (id: number) => void
+  removeFromCart: (id: number) => void
+  cartQuantity: number
+  cartItems: CartItem[]
+}
+
+const ShoppingCartContext = createContext({} as ShoppingCartContext)
 
 export function useShoppingCart() {
-  return useContext(ShoppingCartContext)  //shoping cart context
+  return useContext(ShoppingCartContext)
 }
+export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    "shopping-cart",
+    []
+  )
 
-/*type ShoppingCartContext = {
-  increaseCartQuantity: (id: number) => void
-  cartItems: CartItem[])
-}*/
-/*export function StoreItem({ id }: FakeProps) {
-  const {
-    increaseCartQuantity
-  } = Cart()*/
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  )
+
+  const openCart = () => setIsOpen(true)
+  const closeCart = () => setIsOpen(false)
+  function getItemQuantity(id: number) {
+    return cartItems.find(item => item.id === id)?.quantity || 0
+  }
+  function increaseCartQuantity(id: number) {
+    setCartItems(currItems => {
+      if (currItems.find(item => item.id === id) == null) {
+        return [...currItems, { id, quantity: 1 }]
+      } else {
+        return currItems.map(item => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity + 1 }
+          } else {
+            return item
+          }
+        })
+      }
+    })
+  }
+  function decreaseCartQuantity(id: number) {
+    setCartItems(currItems => {
+      if (currItems.find(item => item.id === id)?.quantity === 1) {
+        return currItems.filter(item => item.id !== id)
+      } else {
+        return currItems.map(item => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity - 1 }
+          } else {
+            return item
+          }
+        })
+      }
+    })
+  }
+  function removeFromCart(id: number) {
+    setCartItems(currItems => {
+      return currItems.filter(item => item.id !== id)
+    })
+  }
 
 
-  const [ click, setClick ] = useState(0);
-
-// const navigate = useNavigate()
-
-//const handleClick = () => navigate()
-
- const CartContext = createContext(click);
-
-
-  const ContextProvider = ({ children }: CartContextProps) => {
-    <CartContext.Provider value={ click }>{children}</CartContext.Provider> //provider contextAPI
- }
- return(
-       <div className="pt-16">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800">
-      {click}
-      <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => setClick(id)}>
-      Add to Cart</button></a>
-      </div>
+    return (
+    <ShoppingCartContext.Provider value={{
+      getItemQuantity,
+      increaseCartQuantity,
+      decreaseCartQuantity,
+      removeFromCart,
+      openCart,
+      closeCart,
+      cartItems,
+      cartQuantity, }}>{children}</ShoppingCartContext.Provider> //provider contextAPI
       )
     }
+
+   
+ 
+ /*(
+       <div className="pt-16">
+      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800">
+      <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => setClick(id)}>
+      Add to Cart</button></a> 
+      </div>
+      )
+    } //thats on consumer return */
