@@ -3,7 +3,7 @@ import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-import { AddCart } from '../hooks/context'
+//import { AddCart } from '../hooks/context'
 
 export function Home() {
   
@@ -33,7 +33,9 @@ export function Home() {
       <img src={landscape} alt="idk" className="h-96 w-full"/>
       <div className="flex h-50 w-full justify-center">
         
-    <AddCart/>
+
+    
+
       </div>
   </div>
   <div className="w-full h-44">
