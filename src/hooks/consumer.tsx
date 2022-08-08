@@ -8,7 +8,7 @@ export function StoreItem({ id }: StoreItemProps) {
   const  {
     getItemQuantity,
     increaseCartQuantity,
-    decreaseCartQuantity
+    decreaseCartQuantity,
   } = useShoppingCart()
   const quantity = getItemQuantity(id) //store item
 

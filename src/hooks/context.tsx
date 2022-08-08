@@ -1,9 +1,11 @@
 import { useContext, createContext, ReactNode, useState } from "react";
 import { useLocalStorage } from '../useLocalStorage'
+import { Cart } from '../pages/Cart'
 
 
-type ShoppingCartProviderProps = { //to children works you have to import manually the children from ReactNode otherwise the children will not be availible
-    children: ReactNode;
+//to children works you have to import manually the children from ReactNode otherwise the children will not be availible
+type ShoppingCartProviderProps = {
+  children: ReactNode
 }
 
 type CartItem = {
@@ -12,8 +14,6 @@ type CartItem = {
 }
 
 type ShoppingCartContext = {
-  openCart: () => void
-  closeCart: () => void
   getItemQuantity: (id: number) => number
   increaseCartQuantity: (id: number) => void
   decreaseCartQuantity: (id: number) => void
@@ -28,7 +28,7 @@ export function useShoppingCart() {
   return useContext(ShoppingCartContext)
 }
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
@@ -39,8 +39,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     0
   )
 
-  const openCart = () => setIsOpen(true)
-  const closeCart = () => setIsOpen(false)
   function getItemQuantity(id: number) {
     return cartItems.find(item => item.id === id)?.quantity || 0
   }
@@ -80,19 +78,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   }
 
-
-    return (
-    <ShoppingCartContext.Provider value={{
-      getItemQuantity,
-      increaseCartQuantity,
-      decreaseCartQuantity,
-      removeFromCart,
-      openCart,
-      closeCart,
-      cartItems,
-      cartQuantity, }}>{children}</ShoppingCartContext.Provider> //provider contextAPI
-      )
-    }
+  return (
+    <ShoppingCartContext.Provider value={{getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart,cartItems,cartQuantity,}}>
+      {children}{<Cart/>}
+      </ShoppingCartContext.Provider>
+  )
+}
 
    
  

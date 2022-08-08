@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom'
+import  { useShoppingCart } from '../hooks/context'
+import  items  from '../data/items.json'
+
+type ShoppingCartProps = {
+  isOpen: boolean
+}
 
 export function Cart() {
+  
+  
+
     return(
         <body className="grid  gap-5 bg-gray-400 fixed">
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
@@ -22,7 +31,8 @@ export function Cart() {
      <div className="flex w-screen h-screen">
         <div className="flex w-screen h-20">
             <div className="flex w-screen bg-gray-500">
-              <div className="pt-3">   
+              <div className="pt-3">
+                
 
                 <svg viewBox='0 0 25 40' className="w-10 h-10">
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13
