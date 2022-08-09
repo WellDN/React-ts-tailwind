@@ -1,15 +1,26 @@
 [
     {
-        "id": 1
-},
-{
-        "id":2
-},
-{
-        "id": 3
-},
-{
-        "id": 4
-}
-
-]
+      "id": 1,
+      "name": "Landscape",
+      "price": 10.99,
+      "imgUrl": "/assets/landscape.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Landscape2",
+      "price": 1199,
+      "imgUrl": "/assets/landscape2.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Landscape3",
+      "price": 1.05,
+      "imgUrl": "/assets/landscape3.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Landscape4",
+      "price": 14000,
+      "imgUrl": "/assets/landscape4.jpeg"
+    }
+  ]

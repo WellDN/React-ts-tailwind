@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<h1>Home</h1>} />
       </Route>
       <Route path="/about" element={<About />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={<Cart isOpen={true} />} />
       </Routes>
       </ShoppingCartProvider>
       );

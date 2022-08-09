@@ -1,16 +1,35 @@
 import { Link } from 'react-router-dom'
 import  { useShoppingCart } from '../hooks/context'
 import  items  from '../data/items.json'
+import { formatCurrency } from '../FormatCurrency'
+import { CartItem } from '../CartItem'
 
 type ShoppingCartProps = {
   isOpen: boolean
 }
 
-export function Cart() {
-  
-  
-
+export function Cart({ isOpen }: ShoppingCartProps) {
+  const { closeCart, cartItems } = useShoppingCart()
     return(
+      <div x-show={isOpen} x-hide={closeCart} className="end">
+      <button onClick={()=>"closeButton"}>
+        <h1>Cart</h1>
+      </button>
+      <body>
+        <div className="">
+          {cartItems.map(item => (
+            <CartItem key={item.id} {...item} />
+          ))}
+          <div className="ms-auto fw-bold fs-5">
+            Total{" "}
+            {formatCurrency(
+              cartItems.reduce((total, cartItem) => {
+                const item = items.find(i => i.id === cartItem.id)
+                return total + (item?.price || 0) * cartItem.quantity
+              }, 0)
+            )}
+    
+
         <body className="grid  gap-5 bg-gray-400 fixed">
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
         <div className="text-lg items-center text-gray-500">
@@ -32,13 +51,13 @@ export function Cart() {
         <div className="flex w-screen h-20">
             <div className="flex w-screen bg-gray-500">
               <div className="pt-3">
-                
-
+              
+              3
                 <svg viewBox='0 0 25 40' className="w-10 h-10">
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13
                  12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5
-                  12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7
-                   0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7
+                 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
                 </svg>
                 </div>
                 <div className="pl-2 justify-center w-20">
@@ -52,5 +71,9 @@ export function Cart() {
         </div>
      </div>
         </body>
-    )
-}
+          </div>
+          </div>
+          </body>
+          </div>
+       
+   )}
