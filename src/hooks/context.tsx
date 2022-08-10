@@ -1,6 +1,6 @@
 import { useContext, createContext, ReactNode, useState } from "react";
 import { useLocalStorage } from '../useLocalStorage'
-import { Cart } from '../pages/Cart'
+import { ShoppingCart } from '../pages/ShoppingCart'
 
 
 //to children works you have to import manually the children from ReactNode otherwise the children will not be availible
@@ -14,7 +14,7 @@ type CartItem = {
 }
 
 type ShoppingCartContext = {
-  openCart: () => void
+  openCart: () => void //thats for the open the cart and display all the thing instead of whats showed in this code.
   closeCart: () => void
   getItemQuantity: (id: number) => number
   increaseCartQuantity: (id: number) => void
@@ -82,22 +82,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   }
 
-  return (
-    <ShoppingCartContext.Provider
-      value={{
-        getItemQuantity,
-        increaseCartQuantity,
-        decreaseCartQuantity,
-        removeFromCart,
-        openCart,
-        closeCart,
-        cartItems,
-        cartQuantity,
-      }}
-    >
-      {children}
-      <Cart isOpen={isOpen} />
-    </ShoppingCartContext.Provider>
+  return (<ShoppingCartContext.Provider value={{getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart,openCart,
+    closeCart,cartItems,cartQuantity,}}>
+      {children}<ShoppingCart isOpen={isOpen} />
+       </ShoppingCartContext.Provider>
   )
 }
 

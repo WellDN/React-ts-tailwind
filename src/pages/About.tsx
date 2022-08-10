@@ -8,8 +8,8 @@ export function About() {
        <Link to="/" className="mr-20 hover:text-gray-900">
          Home
        </Link>
-       <Link to="/cart" className="mr-20 hover:text-gray-900">
-         Cart
+       <Link to="/store" className="mr-20 hover:text-gray-900">
+         Store
        </Link> 
      <Link to="/about" className="hover:text-gray-900">
           About

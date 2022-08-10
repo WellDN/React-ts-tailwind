@@ -3,7 +3,6 @@ import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-//import { AddCart } from '../hooks/context'
 
 export function Home() {
   
@@ -15,8 +14,8 @@ export function Home() {
      to="/" className="mr-20 hover:text-gray-900">
       Home
     </Link>
-    <Link to="/cart" className="mr-20 hover:text-gray-900">
-      Cart
+    <Link to="/store" className="mr-20 hover:text-gray-900">
+      Store
     </Link> 
   <Link to="/about" className="hover:text-gray-900">
        About
@@ -24,7 +23,7 @@ export function Home() {
   </div>
   </nav>
   <div className="flex pl-2 justify-center">
-  <h1 className="text-7xl text-slate-400"><Outlet /></h1>
+  <h1 className="text-7xl text-slate-400">Home<Outlet /></h1>
   </div>
   <section>
     <div className="pt-8">
@@ -41,19 +40,19 @@ export function Home() {
   <div className="w-full h-44">
       <img src={landscape2} alt="idkk" className="h-96 w-full"/>
       <div className="flex pt-16 justify-center">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
       </div>
   </div>
   <div className="h-full w-full">
       <img src={landscape3} alt="idkkkk" className="h-96 w-full"/>
       <div className="flex pt-16 justify-center">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
   </div>
   </div>
   <div className="h-full w-full">
       <img src={landscape4} alt="idkkkkkk" className="h-96 w-full"/>
       <div className="flex pt-16 justify-center h-60 w-50">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
   </div>
   </div>
   </div>

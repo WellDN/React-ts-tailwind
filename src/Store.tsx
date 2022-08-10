@@ -1,43 +1,19 @@
-import { Link } from 'react-router-dom'
-import  { useShoppingCart } from '../hooks/context'
-import  items  from '../data/items.json'
-import { formatCurrency } from '../FormatCurrency'
-import { CartItem } from '../CartItem'
+import { StoreItem } from "./hooks/StoreItem"
+import  storeItems  from "./data/items.json"
+import { Link } from "react-router-dom"
 
-type ShoppingCartProps = {
-  isOpen: boolean
-}
-
-export function Cart({ isOpen }: ShoppingCartProps) {
-  const { closeCart, cartItems } = useShoppingCart()
-    return(
-      <div x-show={isOpen} x-hide={closeCart} className="end">
-      <button onClick={()=>"closeButton"}>
-        <h1>Cart</h1>
-      </button>
-      <body>
-        <div className="">
-          {cartItems.map(item => (
-            <CartItem key={item.id} {...item} />
-          ))}
-          <div className="ms-auto fw-bold fs-5">
-            Total{" "}
-            {formatCurrency(
-              cartItems.reduce((total, cartItem) => {
-                const item = items.find(i => i.id === cartItem.id)
-                return total + (item?.price || 0) * cartItem.quantity
-              }, 0)
-            )}
-    
-
-        <body className="grid  gap-5 bg-gray-400 fixed">
+export function Store() {
+  return (
+    <>
+      <h1>Store</h1>
+      <div className=""><body className="grid  gap-5 bg-gray-400 fixed">
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
         <div className="text-lg items-center text-gray-500">
        <Link to="/" className="mr-20 hover:text-gray-900">
          Home
        </Link>
-       <Link to="/cart" className="mr-20 hover:text-gray-900">
-         Cart
+       <Link to="/store" className="mr-20 hover:text-gray-900">
+         Store
        </Link> 
      <Link to="/about" className="hover:text-gray-900">
           About
@@ -71,9 +47,12 @@ export function Cart({ isOpen }: ShoppingCartProps) {
         </div>
      </div>
         </body>
+        {storeItems.map(item => (
+            <div key={item.id}>
+            <StoreItem {...item} />
           </div>
-          </div>
-          </body>
-          </div>
-       
-   )}
+        ))}
+      </div>
+        </>
+  )
+}

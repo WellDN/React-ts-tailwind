@@ -18,7 +18,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         src={item.imgUrl}
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
-      <div className="">hgfhg
+      <div className="">
         <div>
           {item.name}{" "}
           {quantity > 1 && (

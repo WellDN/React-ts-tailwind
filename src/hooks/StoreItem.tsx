@@ -21,11 +21,11 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
 return(
   <div>
     <div className="">
-    src={imgUrl}
+   <img src={imgUrl}></img>
     </div>
-  <span className="fs-2">{name}</span>
-      <span className="ms-2 text-muted">{formatCurrency(price)}</span>
-    <div className="mt-auto">
+  <span className="">{name}</span>
+      <span className="">{formatCurrency(price)}</span>
+    <div className="">
       </div>
     {quantity === 0 ? (
       <button className="w-100" onClick={() => increaseCartQuantity(id)}>
