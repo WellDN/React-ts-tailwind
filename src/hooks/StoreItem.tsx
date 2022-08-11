@@ -27,12 +27,10 @@ return(
       <span className="">{formatCurrency(price)}</span>
     <div className="">
       </div>
-    {quantity === 0 ? (
       <button className="w-100" onClick={() => increaseCartQuantity(id)}>
           + Add To Cart
         </button>
-     ) : (
-       <><div>
+       <div>
           <button onClick={() => increaseCartQuantity(id)}>+</button>
         </div><div>
             <span className="">{quantity}</span> in cart
@@ -40,13 +38,11 @@ return(
             <button onClick={() => decreaseCartQuantity(id)}>-</button>
           </div><div>
             <button
-              onClick={() => removeFromCart(id)} //coloca store e item dentro desse componente, NÃO CRIA OUTRO!!
+              onClick={() => removeFromCart(id)} //coloca storeitem e cartitem dentro desse componente, NÃO CRIA OUTRO!!
             >
               Remove
             </button>
-          </div></>
-    )}
-
+          </div>
 </div>
 )
 }

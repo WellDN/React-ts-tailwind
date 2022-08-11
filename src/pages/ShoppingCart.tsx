@@ -8,10 +8,10 @@ type ShoppingCartProps = {
   isOpen: boolean
 }
 
-export function ShoppingCart({ isOpen }: ShoppingCartProps) {
+export function ShoppingCart (/*ShoppingCartProps*/) {
   const { closeCart, cartItems } = useShoppingCart()
     return(
-      <div x-show={isOpen} x-hide={closeCart} className="end">fkwopfkwpofkpoqkffjewifjio //this is the opening cart make it in main store.
+      <div className="end">THIS HAVE TO BE OUT OF THIS FILE RN
       <button onClick={()=>"closeButton"}>
         <h1>Cart</h1>
       </button>

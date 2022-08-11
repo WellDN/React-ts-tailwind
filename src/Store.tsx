@@ -1,12 +1,15 @@
 import { StoreItem } from "./hooks/StoreItem"
 import  storeItems  from "./data/items.json"
 import { Link } from "react-router-dom"
+import  { ShoppingCart } from './pages/ShoppingCart'
 
 export function Store() {
   return (
     <>
-      <h1>Store</h1>
-      <div className=""><body className="grid  gap-5 bg-gray-400 fixed">
+                {storeItems.map(item => (
+                  <div key={item.id}>
+                  <div className=""><body className="grid  gap-5 bg-gray-400 fixed">
+                      <ShoppingCart/>
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
         <div className="text-lg items-center text-gray-500">
        <Link to="/" className="mr-20 hover:text-gray-900">
@@ -16,7 +19,7 @@ export function Store() {
          Store
        </Link> 
      <Link to="/about" className="hover:text-gray-900">
-          About
+       About
      </Link>
      </div>
      </nav>
@@ -39,7 +42,8 @@ export function Store() {
                 <div className="pl-2 justify-center w-20">
                 <p className="text-zinc-100 ml-1 text-1xl">Item</p>
                 <div className="flex h-10 w-96 rounded-xl border-2 border-gray-300">
-                <div className="w-10 h-50 pt-1">object</div>
+                 <StoreItem {...item} />
+                <div className="w-10 h-50 pt-1"></div>
                   <div className="w-80 "></div>
                 </div>
                 </div>
@@ -47,12 +51,9 @@ export function Store() {
         </div>
      </div>
         </body>
-        {storeItems.map(item => (
-            <div key={item.id}>
-            <StoreItem {...item} />
           </div>
-        ))}
       </div>
-        </>
+))}
+</>
   )
 }

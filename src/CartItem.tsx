@@ -16,18 +16,18 @@ export function CartItem({ id, quantity }: CartItemProps) {
     <div className="horizontal">
       <img
         src={item.imgUrl}
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        style={{ }}
       />
       <div className="">
         <div>
           {item.name}{" "}
           {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: ".65rem" }}>
+            <span className="text-muted" style={{  }}>
               x{quantity}
             </span>
           )}
         </div>
-        <div className="text-muted" style={{ fontSize: ".75rem" }}>
+        <div className="text-muted" style={{  }}>
           {formatCurrency(item.price)}
         </div>
       </div>
