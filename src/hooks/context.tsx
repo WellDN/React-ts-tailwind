@@ -1,6 +1,5 @@
 import { useContext, createContext, ReactNode, useState } from "react";
 import { useLocalStorage } from '../useLocalStorage'
-import { ShoppingCart } from '../pages/ShoppingCart'
 
 
 //to children works you have to import manually the children from ReactNode otherwise the children will not be availible
@@ -90,14 +89,3 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
        </ShoppingCartContext.Provider>
   )
 }
-
-   
- 
- /*(
-       <div className="pt-16">
-      <a href="/cart" className="text-1xl text-slate-600 hover:text-stone-800">
-      <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => setClick(id)}>
-      Add to Cart</button></a> 
-      </div>
-      )
-    } //thats on consumer return */

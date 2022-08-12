@@ -6,10 +6,10 @@ import  { ShoppingCart } from './pages/ShoppingCart'
 export function Store() {
   return (
     <>
-                {storeItems.map(item => (
-                  <div key={item.id}>
+     <ShoppingCart/>
+    {storeItems.map(item => (
+      <div key={item.id}>
                   <div className=""><body className="grid  gap-5 bg-gray-400 fixed">
-                      <ShoppingCart/>
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
         <div className="text-lg items-center text-gray-500">
        <Link to="/" className="mr-20 hover:text-gray-900">

@@ -11,7 +11,7 @@ type ShoppingCartProps = {
 export function ShoppingCart (/*ShoppingCartProps*/) {
   const { closeCart, cartItems } = useShoppingCart()
     return(
-      <div className="end">THIS HAVE TO BE OUT OF THIS FILE RN
+      <div className="">THIS HAVE TO BE OUT OF THIS FILE RN
       <button onClick={()=>"closeButton"}>
         <h1>Cart</h1>
       </button>
@@ -20,7 +20,7 @@ export function ShoppingCart (/*ShoppingCartProps*/) {
           {cartItems.map(item => (
             <CartItem key={item.id} {...item} />
           ))}
-          <div className="ms-auto fw-bold fs-5">
+          <div className="">
             Total{" "}
             {formatCurrency(
               cartItems.reduce((total, cartItem) => {

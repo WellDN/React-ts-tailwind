@@ -38,7 +38,7 @@ return(
             <button onClick={() => decreaseCartQuantity(id)}>-</button>
           </div><div>
             <button
-              onClick={() => removeFromCart(id)} //coloca storeitem e cartitem dentro desse componente, NÃO CRIA OUTRO!!
+              onClick={() => removeFromCart(id)}
             >
               Remove
             </button>
