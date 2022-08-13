@@ -1,13 +1,13 @@
 import { Outlet, Link } from 'react-router-dom'
+import { useShoppingCart } from '../hooks/context'
 import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-import { StoreItem } from '../hooks/StoreItem'
-import { ShoppingCartProvider } from '../hooks/context' //make add to cart in home page by taking the context or cartItem or create a new context
+
 
 export function Home() {
-  
+  const { openCart, cartQuantity } = useShoppingCart() //.
   return (
     <body className="grid gap-5 min-w-min bg-gray-200">
      <nav className="flex justify-center pt-2 bg-gray-300 h-12 w-full sm:">
@@ -37,8 +37,8 @@ export function Home() {
 
       <div className="pt-16">
       <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800">
-      <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>Add to cart
-      </button></Link> 
+        <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>Add to cart
+      </button></Link>
       </div>
      
 

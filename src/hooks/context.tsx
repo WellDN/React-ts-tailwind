@@ -45,7 +45,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   function getItemQuantity(id: number) {
     return cartItems.find(item => item.id === id)?.quantity || 0
   }
-  function increaseCartQuantity(id: number) {
+   function increaseCartQuantity(id: number) {
     setCartItems(currItems => {
       if (currItems.find(item => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }]
@@ -58,7 +58,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
           }
         })
       }
-    })
+      })
   }
   function decreaseCartQuantity(id: number) {
     setCartItems(currItems => {
