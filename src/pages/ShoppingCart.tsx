@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import  { useShoppingCart } from '../hooks/context'
 import  items  from '../data/items.json'
 import { formatCurrency } from '../FormatCurrency'
@@ -8,11 +7,11 @@ type ShoppingCartProps = {
   isOpen: boolean
 }
 
-export function ShoppingCart (/*ShoppingCartProps*/) {
+export function ShoppingCart (/*ShoppingCartProps*/) { //inside the cart
   const { closeCart, cartItems } = useShoppingCart()
     return(
-      <div className="">THIS HAVE TO BE OUT OF THIS FILE RN
-      <button onClick={()=>"closeButton"}>
+      <div className="">
+      <button onClick={()=> closeCart}>
         <h1>Cart</h1>
       </button>
       <body>
