@@ -4,17 +4,19 @@ import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
 import { useShoppingCart } from '../hooks/context'
-import { StoreItem } from '../hooks/StoreItem'
+import { formatCurrency } from '../FormatCurrency'
 
-type StoreItemProps = {
+
+type StoreItemProp = { //check the id shit
   id: number
+  price: number
 }
-export function Home({id}: StoreItemProps) {
-  const { increaseCartQuantity } = useShoppingCart()
+export function Home({id, price}: StoreItemProp) {
+  const { increaseCartQuantity } = useShoppingCart() //reusing function of the StoreItem
+  
   return (
-    
     <body className="grid gap-5 min-w-min bg-gray-200">
-     <nav className="flex justify-center pt-2 bg-gray-300 h-12 w-full sm:">
+     <nav className="flex justify-center pt-2 bg-gray-300 h-12 w-full">
      <div className="text-lg items-center text-gray-500">
     <Link
      to="/" className="mr-20 hover:text-gray-900">
@@ -35,34 +37,40 @@ export function Home({id}: StoreItemProps) {
     <div className="pt-8">
   <div className="grid 16 gap-16 grid-cols-1 grid-rows-4 h-full w-full sm:grid-cols-2 sm:grid-rows-2">
   <div className="w-full">
-      <img src={landscape} alt="idk" className="h-96 w-full"/>
-      <div className="flex h-50 w-full justify-center">
-      
-      <div className="pt-16">
-      <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800">
-        <button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>Add to cart
-      </button></Link>
-        </div> 
-     
-
-      </div>
+    <img src={landscape} alt="idk" className="h-96 w-full"/>
+      <div className="flex justify-center">{formatCurrency(price)}</div>
+    <div className="flex h-50 w-full justify-center">
+    <div className="pt-16">
+      <button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>
+    <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800">
+     Add to cart 
+    </Link></button>
+      </div> 
+  
+    </div>
   </div>
   <div className="w-full h-44">
       <img src={landscape2} alt="idkk" className="h-96 w-full"/>
+      <div className="flex justify-center">{formatCurrency(price)}</div>
       <div className="flex pt-16 justify-center">
-      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
+        Add to Cart</button></Link>
       </div>
   </div>
   <div className="h-full w-full">
       <img src={landscape3} alt="idkkkk" className="h-96 w-full"/>
+      <div className="flex justify-center">{formatCurrency(price)}</div>
       <div className="flex pt-16 justify-center">
-      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
+        Add to Cart</button></Link>
   </div>
   </div>
   <div className="h-full w-full">
       <img src={landscape4} alt="idkkkkkk" className="h-96 w-full"/>
+      <div className="flex justify-center">{formatCurrency(price)}</div>
       <div className="flex pt-16 justify-center h-60 w-50">
-      <a href="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full p-1 border-2 border-slate-600 hover:border-slate-900'>Add to Cart</button></a>
+      <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
+        Add to Cart</button></Link>
   </div>
   </div>
   </div>
