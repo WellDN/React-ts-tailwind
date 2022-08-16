@@ -4,17 +4,19 @@ import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
 import { useShoppingCart } from '../hooks/context'
-import { formatCurrency } from '../FormatCurrency'
+import { StoreItem } from '../hooks/StoreItem'
+import storeItems from '../data/items.json'
+import { HomeItem } from '../HomeItem'
 
 
-type StoreItemProp = { //check the id shit
-  id: number
-  price: number
-}
-export function Home({id, price}: StoreItemProp) {
+
+export function Home() {
   const { increaseCartQuantity } = useShoppingCart() //reusing function of the StoreItem
   
   return (
+    <>
+    {storeItems.map(item => (
+      <div key={item.id}>
     <body className="grid gap-5 min-w-min bg-gray-200">
      <nav className="flex justify-center pt-2 bg-gray-300 h-12 w-full">
      <div className="text-lg items-center text-gray-500">
@@ -36,12 +38,13 @@ export function Home({id, price}: StoreItemProp) {
   <section>
     <div className="pt-8">
   <div className="grid 16 gap-16 grid-cols-1 grid-rows-4 h-full w-full sm:grid-cols-2 sm:grid-rows-2">
-  <div className="w-full">
+    <div className="w-full">
     <img src={landscape} alt="idk" className="h-96 w-full"/>
-      <div className="flex justify-center">{formatCurrency(price)}</div>
+    <StoreItem {...item} /> <HomeItem{...item}/>
+      <div className="flex justify-center"><span className=""></span></div>
     <div className="flex h-50 w-full justify-center">
     <div className="pt-16">
-      <button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>
+      <button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity}>
     <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800">
      Add to cart 
     </Link></button>
@@ -50,8 +53,8 @@ export function Home({id, price}: StoreItemProp) {
     </div>
   </div>
   <div className="w-full h-44">
-      <img src={landscape2} alt="idkk" className="h-96 w-full"/>
-      <div className="flex justify-center">{formatCurrency(price)}</div>
+    <img src={landscape2} alt="idkk" className="h-96 w-full"/>
+      <div className="flex justify-center"></div>
       <div className="flex pt-16 justify-center">
       <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
         Add to Cart</button></Link>
@@ -59,7 +62,7 @@ export function Home({id, price}: StoreItemProp) {
   </div>
   <div className="h-full w-full">
       <img src={landscape3} alt="idkkkk" className="h-96 w-full"/>
-      <div className="flex justify-center">{formatCurrency(price)}</div>
+      <div className="flex justify-center"></div>
       <div className="flex pt-16 justify-center">
       <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
         Add to Cart</button></Link>
@@ -67,7 +70,7 @@ export function Home({id, price}: StoreItemProp) {
   </div>
   <div className="h-full w-full">
       <img src={landscape4} alt="idkkkkkk" className="h-96 w-full"/>
-      <div className="flex justify-center">{formatCurrency(price)}</div>
+      <div className="flex justify-center"></div>
       <div className="flex pt-16 justify-center h-60 w-50">
       <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800"><button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900'>
         Add to Cart</button></Link>
@@ -77,5 +80,8 @@ export function Home({id, price}: StoreItemProp) {
   </div>
   </section>
   </body>
-)
+</div>
+))}
+</>
+  )
 }

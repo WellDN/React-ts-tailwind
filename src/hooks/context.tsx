@@ -23,7 +23,7 @@ type ShoppingCartContext = {
   cartItems: CartItem[]
 }
 
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const ShoppingCartContext = createContext({} as ShoppingCartContext) //to make the context provider you have to put the create context as the context provider so you can create every single function puttin on return on provider.
 
 export function useShoppingCart() {
   return useContext(ShoppingCartContext)
