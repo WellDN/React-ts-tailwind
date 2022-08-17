@@ -10,7 +10,6 @@ export function Store() {
   return (
     <>
     {storeItems.map(item => (
-      <div key={item.id}>
           <div className="">
           <body className="grid gap-5 bg-gray-400 fixed">
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
@@ -57,7 +56,7 @@ export function Store() {
      </div>
         </body>
           </div>
-      </div>
+      
 ))}
 </>
   )
