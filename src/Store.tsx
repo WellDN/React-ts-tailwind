@@ -11,9 +11,9 @@ export function Store() {
     <>
     {storeItems.map(item => (
           <div className="">
-          <body className="grid gap-5 bg-gray-400 fixed">
+          <body className="grid gap-5 min-w-min bg-white">
         <nav className="flex  justify-center pt-2 bg-gray-300 h-12 w-full sm:">
-        <div className="text-lg items-center text-gray-500">
+        <div className="text-lg items-center text-gray-600">
        <Link to="/" className="mr-20 hover:text-gray-900">
          Home
        </Link>
@@ -25,12 +25,12 @@ export function Store() {
      </Link>
      </div>
      </nav>
-     <div className="flex pl-2 w-screen">
+     <div className="flex pl-2 w-full">
      <h1 className="text-4xl pt-5 text-gray-700">Cart</h1>
     </div>
-     <div className="flex w-screen h-screen">
-        <div className="flex w-screen h-20">
-     <div className="flex w-screen bg-gray-500">
+     <div className="flex h-screen w-full">
+        <div className="flex w-full h-20">
+     <div className="flex w-full bg-gray-500">
      {cartQuantity > 0 && ( // change with the add cart button count
      <div className="pt-3">
        <svg viewBox='0 0 25 40' className="w-10 h-10">
@@ -42,13 +42,14 @@ export function Store() {
        
        </div>
         )} {cartQuantity}
-       <div className="pl-2 justify-center w-20">
+       <div className="pl-2 w-full flex">
        <p className="text-zinc-100 ml-1 text-1xl">Item</p>
-       <div className="flex h-10 w-96 rounded-xl border-2 border-gray-300">
+       <div className="flex w-full">
         <StoreItem {...item} />
-       <div className="w-10 h-50 pt-1"></div>
-         <div className="w-80"></div>
-       <ShoppingCart/>
+        <div className="w-full flex">
+       <div className=" justify-end w-full flex">
+       <ShoppingCart/></div>
+       </div>
        </div>
        </div>
         </div>

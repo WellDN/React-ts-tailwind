@@ -16,8 +16,8 @@ export function CartItem({ id, quantity }: CartItemProps) {
     <div className="">
       <img src={item.imgUrl}/>
       <div className="">
-        <div>
           {item.name}{" "}
+        <div>
           {quantity > 1 && (
             <span className="">
               x{quantity}

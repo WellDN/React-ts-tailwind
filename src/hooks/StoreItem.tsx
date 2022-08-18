@@ -1,5 +1,6 @@
 import { formatCurrency } from '../FormatCurrency'
 import { useShoppingCart } from './context'
+import storeItem from '../data/items.json'
 
 type StoreItemProps = {
     id: number
@@ -11,7 +12,6 @@ type StoreItemProps = {
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const  {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart,} = useShoppingCart()
   const quantity = getItemQuantity(id) //store item
-
   
 return(
   <div>
@@ -22,9 +22,6 @@ return(
       <span className="">{formatCurrency(price)}</span>
     <div className="">
   </div>
-  <button className="w-100" onClick={() => increaseCartQuantity(id)}>
-      + Add To Cart
-    </button>
    <div>
      <button onClick={() => increaseCartQuantity(id)}>+</button>
    </div><div>
