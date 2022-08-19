@@ -1,6 +1,5 @@
 import { formatCurrency } from '../FormatCurrency'
 import { useShoppingCart } from './context'
-import storeItem from '../data/items.json'
 
 type StoreItemProps = {
     id: number
