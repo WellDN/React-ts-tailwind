@@ -3,24 +3,24 @@
       "id": 1,
       "name": "Landscape",
       "price": 10.99,
-      "imgUrl": "/assets/landscape.jpeg"
+      "imgUrl": "https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 2,
       "name": "Landscape2",
       "price": 1199,
-      "imgUrl": "/assets/landscape2.jpeg"
+      "imgUrl": "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 3,
       "name": "Landscape3",
       "price": 1.05,
-      "imgUrl": "/assets/landscape3.jpeg"
+      "imgUrl": "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 4,
       "name": "Landscape4",
       "price": 14000,
-      "imgUrl": "/assets/landscape4.jpeg"
+      "imgUrl": "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
   ]
