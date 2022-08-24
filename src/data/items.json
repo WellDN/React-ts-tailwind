@@ -1,5 +1,5 @@
-[
-    {
+   [
+    { "_comment":"in json you cannot put the actual file image, instead of it, copy the link adress like below",
       "id": 1,
       "name": "Landscape",
       "price": 10.99,
@@ -23,4 +23,4 @@
       "price": 14000,
       "imgUrl": "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
-  ]
+  ]   

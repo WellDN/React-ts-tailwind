@@ -15,7 +15,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
 return(
   <div>
     <div className="">
-   <img src={imgUrl}></img>
+   <img src={imgUrl} className="w-96 h-96 flex object-cover"></img>
     </div>
   <span className="">{name}</span>
       <span className="">{formatCurrency(price)}</span>

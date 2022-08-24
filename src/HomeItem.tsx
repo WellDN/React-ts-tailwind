@@ -6,9 +6,6 @@ import { useShoppingCart } from "./hooks/context";
 
 type HomeItemProps = {
     id: number
-    name: string
-    price: number
-    imgUrl: string
 }
 
 export function HomeItem({ id }: HomeItemProps) {
@@ -18,14 +15,16 @@ export function HomeItem({ id }: HomeItemProps) {
 
 return (
     <div>
-        <div className="">{item.name}{" "}</div> 
+        <div className="">{item.name}{" "}</div>
         <div className="">
             {formatCurrency(item.price)}
         </div>
+        <div className=" hover:text-stone-900">
             <button className='rounded-full pb-1 pr-2 pl-2 border-2 border-slate-600 hover:border-slate-900' onClick={() => increaseCartQuantity(id)}>
     <Link to="/store" className="text-1xl text-slate-600 hover:text-stone-800">
-     Add to cart 
+     Add to cart
     </Link></button>
+    </div>
      
-    </div>//cartItem.THISSSSS
+    </div>
     )}

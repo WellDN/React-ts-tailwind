@@ -3,7 +3,6 @@ import landscape from './assets/landscape.jpeg'
 import landscape2 from './assets/landscape2.jpeg'
 import landscape3 from './assets/landscape3.jpeg'
 import landscape4 from './assets/landscape4.jpeg'
-import storeItems from '../data/items.json'
 import { HomeItem } from '../HomeItem'
 import { useShoppingCart } from '../hooks/context'
 
@@ -19,7 +18,7 @@ export function Home() {
      <div className="pt-2">
     <Link
      to="/" className="pr-20 hover:text-gray-900">
-       Home
+       Sussy
     </Link>
     <Link to="/store" className="pr-20 hover:text-gray-900">
       Store
@@ -41,7 +40,6 @@ export function Home() {
    </svg>
     //!!!!important  on the cartquantity is the transform to make a cart quantity absolute with the cart use as reference
     )}</Link></div>
-    
     <div className="absolute translate-y-0 w-4">
     <div className="absolute translate-y-0 pointer-events-none">{cartQuantity}</div>
    </div>
@@ -50,7 +48,7 @@ export function Home() {
   </div>
   </nav>
   <div className="flex px-2 justify-center">
-  <h1 className="text-7xl text-slate-400">Home<Outlet /></h1>
+  <h1 className="text-7xl text-slate-400">ZZZZ<Outlet /></h1>
   </div>
   <section>
     <div className="pt-8">
@@ -60,7 +58,7 @@ export function Home() {
       <div className="flex justify-center"><span className=""></span></div>
     <div className="flex h-50 w-full justify-center">
     <div className="pt-16">
-      <HomeItem id={1}/>
+    <HomeItem id={1}/>
       </div> 
     </div>
   </div>
@@ -91,3 +89,5 @@ export function Home() {
   </body>
   )
 }
+
+

@@ -7,9 +7,9 @@ type ShoppingCartProps = { //put it on children provider and make an open and cl
   id: number
 }
 
-export function ShoppingCart ({id}:ShoppingCartProps/*ShoppingCartProps*/) { //inside the cart
+export function ShoppingCart (/*ShoppingCartProps*/) { //inside the cart
   const { closeCart, cartItems, increaseCartQuantity, decreaseCartQuantity } = useShoppingCart()
-
+  
     return(
       <div className="">
       <button onClick={()=> closeCart}>
@@ -20,10 +20,6 @@ export function ShoppingCart ({id}:ShoppingCartProps/*ShoppingCartProps*/) { //i
           {cartItems.map(item => (
             <CartItem key={item.id} {...item} />
             ))}
-          <div>
-            <button onClick={() => increaseCartQuantity(id)}>+</button>
-            <button onClick={() => decreaseCartQuantity(id)}>+</button>
-          </div>
           <div className="">
             Total{" "}
             {formatCurrency(
